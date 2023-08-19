@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import Footer from "./component-layout/footer/footer";
+import Footer from "../../shared/layout-components/footer/footer";
 import { Provider } from "react-redux";
 import store from "../../shared/redux/store";
 import dynamic from "next/dynamic";
@@ -14,11 +14,11 @@ const Sidebar = dynamic(() => import("../../shared/layout-components/sidebar/sid
 import SSRProvider from 'react-bootstrap/SSRProvider';
 
 type Props = {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
-export default function DashboardLayout({children}: Props) {
-    let Router = useRouter();
+export default function DashboardLayout({ children }: Props) {
+  let Router = useRouter();
   const Add = () => {
     document.querySelector("body").classList.remove("error-1");
     document
@@ -82,18 +82,18 @@ export default function DashboardLayout({children}: Props) {
         .querySelector("body")
         .classList.add("horizontalmenu", "horizontalmenu-hover");
       document.querySelector(".main-content").classList.add("hor-content");
-      if(document.querySelector(".main-menu")!=null){
-          document.querySelector(".main-menu").classList.add("main-navbar", "hor-menu");
-          document.querySelector(".main-container-1").classList.add("container");
-          document
-            .querySelector(".main-menu")
-            .classList.remove("main-sidebar", "main-sidebar-sticky", "side-menu");
-            document
-              .querySelector(".main-container-1")
-              .classList.remove("main-sidebar-header");
-              document
-                .querySelector(".main-body-1")
-                .classList.remove("main-sidebar-body");
+      if (document.querySelector(".main-menu") != null) {
+        document.querySelector(".main-menu").classList.add("main-navbar", "hor-menu");
+        document.querySelector(".main-container-1").classList.add("container");
+        document
+          .querySelector(".main-menu")
+          .classList.remove("main-sidebar", "main-sidebar-sticky", "side-menu");
+        document
+          .querySelector(".main-container-1")
+          .classList.remove("main-sidebar-header");
+        document
+          .querySelector(".main-body-1")
+          .classList.remove("main-sidebar-body");
       }
       document.querySelectorAll(".main-container").forEach((e) => e.classList.add("container"));
       document
@@ -109,7 +109,7 @@ export default function DashboardLayout({children}: Props) {
       document
         .querySelectorAll(".menu-icon")
         .forEach((e) => e.classList.remove("sidemenu-icon"));
-    //    
+      //    
     }
   });
 
@@ -121,8 +121,8 @@ export default function DashboardLayout({children}: Props) {
     if (document.querySelector(".card.search-result") != null) {
       document.querySelector(".card.search-result").classList.add("d-none");
     }
-    if (document.body.classList.contains("horizontalmenu")){
-      document.querySelectorAll(".nav-sub").forEach((res)=>{
+    if (document.body.classList.contains("horizontalmenu")) {
+      document.querySelectorAll(".nav-sub").forEach((res) => {
         res.classList = "nav-sub"
         res.style.display = "none"
       })
@@ -133,28 +133,28 @@ export default function DashboardLayout({children}: Props) {
       {/* <Head>
         <body className="ltr main-body leftmenu"></body>
         </Head> */}
-        <SSRProvider>
-      <Provider store={store}>
-        <div className="horizontalMenucontainer">
-          <div className="page">
-            <Header />
-            <Sidebar />
-            <div className="main-content side-content pt-0">
-              <div
-                className="main-container container-fluid"
-                onClick={() => remove()}
-              >
-                <div className="inner-body">{children}</div>
+      <SSRProvider>
+        <Provider store={store}>
+          <div className="horizontalMenucontainer">
+            <div className="page">
+              <Header />
+              <Sidebar />
+              <div className="main-content side-content pt-0">
+                <div
+                  className="main-container container-fluid"
+                  onClick={() => remove()}
+                >
+                  <div className="inner-body">{children}</div>
+                </div>
               </div>
+              <Rightside />
             </div>
-            <Rightside />
+            <Switcher />
+            <TabToTop />
+            <Footer />
           </div>
-          <Switcher />
-          <TabToTop />
-          <Footer />
-        </div>
-      </Provider>
-        </SSRProvider>
+        </Provider>
+      </SSRProvider>
     </>
   );
-  }
+}

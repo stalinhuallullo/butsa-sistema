@@ -7,8 +7,8 @@ import Selectoptions from "../../../shared/data/header/headerdata";
 
 //Images
 
-import logo from "../../../public/assets/img/brand/logo.png"
-import logolight from "../../../public/assets/img/brand/logo-light.png"
+import logo from "../../../public/assets/img/brand/logo-color-120px.svg"
+import logolight from "../../../public/assets/img/brand/logo-white-120px.svg"
 import frenchflag from "../../../public/assets/img/flags/french_flag.jpg"
 import germanyflag from "../../../public/assets/img/flags/germany_flag.jpg"
 import italyflag from "../../../public/assets/img/flags/italy_flag.jpg"
@@ -189,11 +189,11 @@ function Header() {
               <Navbar.Collapse className="collapse navbar-collapse" id="navbarSupportedContent-4">
                 <HeadDropDown/>
               </Navbar.Collapse>
-              <div className="d-flex header-setting-icon demo-icon fa-spin">
+              {/* <div className="d-flex header-setting-icon demo-icon fa-spin">
                 <Nav.Link className="nav-link icon" onClick={Swicherbutton}>
                   <i className="fe fe-settings settings-icon "></i>
                 </Nav.Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </Container>

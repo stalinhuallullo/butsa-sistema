@@ -8,10 +8,10 @@ import dynamic from "next/dynamic";
 let history = [];
 
 //Images
-import logolight from "../../../public//assets/img/brand/logo-light.png"
-import iconlight from "../../../public//assets/img/brand/icon-light.png"
-import logo from "../../../public//assets/img/brand/logo.png"
-import icon from "../../../public//assets/img/brand/icon.png"
+import logolight from "../../../public/assets/img/brand/logo-white-120px.svg"
+import iconlight from "../../../public/assets/img/brand/icon-light-white-37px.svg"
+import logo from "../../../public/assets/img/brand/logo.png"
+import icon from "../../../public/assets/img/brand/icon.png"
 
 const SideBar = () => {
   let location = useRouter();
@@ -105,7 +105,7 @@ const SideBar = () => {
                     return submenu1;
                   });
                 }
-                if(location.pathname == "/components/ecommerce/product-detail/[id]" && submenu.path == "/components/ecommerce/product-details"){
+                if (location.pathname == "/components/ecommerce/product-detail/[id]" && submenu.path == "/components/ecommerce/product-details") {
                   items.active = true;
                   items.selected = true;
                   submenu.active = true;
@@ -219,252 +219,252 @@ const SideBar = () => {
         style={{ marginBottom: "-64px" }}
         onScroll={horizontalmenusticky()}
       >
-          <div className="main-menu main-sidebar main-sidebar-sticky side-menu">
+        <div className="main-menu main-sidebar main-sidebar-sticky side-menu">
           <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
             <div className="main-container-1 active main-sidebar-header">
-                <div className="sidemenu-logo">
-                  <Link className="main-logo" href={`/components/dashboard/dashboard`}>
-                      <img
-                        src={logolight.src}
-                        className="header-brand-img desktop-logo"
-                        alt={"logo1"}
-                      />
+              <div className="sidemenu-logo">
+                <Link className="main-logo" href={`/components/dashboard/dashboard`}>
+                  <img
+                    src={logolight.src}
+                    className="header-brand-img desktop-logo"
+                    alt={"logo1"}
+                  />
 
-                      <img
-                        src={iconlight.src}
-                        className="header-brand-img icon-logo"
-                        alt={"logo-2"}
-                      />
+                  <img
+                    src={iconlight.src}
+                    className="header-brand-img icon-logo"
+                    alt={"logo-2"}
+                  />
 
-                      <img
-                        src={logo.src}
-                        className="header-brand-img desktop-logo theme-logo"
-                        alt={"logo-3"}
-                      />
-                      <img
-                        src={icon.src}
-                        className="header-brand-img icon-logo theme-logo"
-                        alt={"logo-4"}
-                      />
-                  </Link>
+                  <img
+                    src={logo.src}
+                    className="header-brand-img desktop-logo theme-logo"
+                    alt={"logo-3"}
+                  />
+                  <img
+                    src={icon.src}
+                    className="header-brand-img icon-logo theme-logo"
+                    alt={"logo-4"}
+                  />
+                </Link>
+              </div>
+              <div
+                className="main-body-1 main-sidebar-body"
+                onMouseOver={() => Onhover()}
+                onMouseOut={() => Outhover()}
+              >
+                <div className="slide-left " id="slide-left">
+                  <i className="fe fe-chevron-left"></i>
                 </div>
-                <div
-                  className="main-body-1 main-sidebar-body"
-                  onMouseOver={() => Onhover()}
-                  onMouseOut={() => Outhover()}
-                >
-                  <div className="slide-left " id="slide-left">
-                    <i className="fe fe-chevron-left"></i>
-                  </div>
 
-                  <ul className="menu-nav nav" style={{ marginLeft: "0px" }}>
-                    {menuitems.map((Item, itemi) => (
-                      <Fragment key={itemi + Math.random() * 100}>
-                        <li className="nav-header">
-                          <span className="nav-label">{Item.menutitle}</span>
-                        </li>
-                        {Item.Items.map((menuItem, i) => (
-                          <li
-                            className={`nav-item ${menuItem.selected ? "active" : ""
-                              }`}
-                            key={i}
-                          >
-                            {menuItem.type === "sub" ? (
-                              <a
-                                href="#!"
-                                className={`nav-link with-sub`}
-                                onClick={(event) => {
-                                  event.preventDefault();
-                                  toggleSidemenu(menuItem);
-                                }}
-                              >
-                                <span className="shape1"></span>
-                                <span className="shape2"></span>
-                                <i
-                                  className={`${menuItem.icon} ${menuIcontype} menu-icon`}
-                                ></i>
-                                <span className="sidemenu-label">
-                                  {menuItem.title}
-                                  {menuItem.active}
-                                </span>
-                                {menuItem.badge ? (
-                                  <label className={menuItem.badge}>
-                                    {menuItem.badgetxt}
-                                  </label>
-                                ) : (
-                                  ""
-                                )}
-                                <div className="according-menu">
-                                  {menuItem.active ? (
-                                    <i
-                                      className={`${menuItem.background} fa angle fa-angle-down `}
-                                    ></i>
-                                  ) : (
-                                    <i
-                                      className={`${menuItem.background} fa angle fa-angle-right `}
-                                    ></i>
-                                  )}
-                                </div>
-                              </a>
-                            ) : (
-                              ""
-                            )}
-
-                            {menuItem.type === "link" ? (
-                              <Link
-                                href={`${menuItem.path}`}
-                                className={`nav-link ${menuItem.selected ? " active" : ""}`}
-                              >
-                                  <span className="shape1"></span>
-                                  <span className="shape2"></span>
+                <ul className="menu-nav nav" style={{ marginLeft: "0px" }}>
+                  {menuitems.map((Item, itemi) => (
+                    <Fragment key={itemi + Math.random() * 100}>
+                      <li className="nav-header">
+                        <span className="nav-label">{Item.menutitle}</span>
+                      </li>
+                      {Item.Items.map((menuItem, i) => (
+                        <li
+                          className={`nav-item ${menuItem.selected ? "active" : ""
+                            }`}
+                          key={i}
+                        >
+                          {menuItem.type === "sub" ? (
+                            <a
+                              href="#!"
+                              className={`nav-link with-sub`}
+                              onClick={(event) => {
+                                event.preventDefault();
+                                toggleSidemenu(menuItem);
+                              }}
+                            >
+                              <span className="shape1"></span>
+                              <span className="shape2"></span>
+                              <i
+                                className={`${menuItem.icon} ${menuIcontype} menu-icon`}
+                              ></i>
+                              <span className="sidemenu-label">
+                                {menuItem.title}
+                                {menuItem.active}
+                              </span>
+                              {menuItem.badge ? (
+                                <label className={menuItem.badge}>
+                                  {menuItem.badgetxt}
+                                </label>
+                              ) : (
+                                ""
+                              )}
+                              <div className="according-menu">
+                                {menuItem.active ? (
                                   <i
-                                    className={`${menuItem.icon} ${menuIcontype} menu-icon`}
+                                    className={`${menuItem.background} fa angle fa-angle-down `}
                                   ></i>
-                                  <span className="sidemenu-label">
-                                    {menuItem.title}
-                                  </span>
-                                  {menuItem.badge ? (
-                                    <label className={menuItem.badge}>
-                                      {menuItem.badgetxt}
-                                    </label>
-                                  ) : (
-                                    ""
-                                  )}
-                              </Link>
-                            ) : (
-                              ""
-                            )}
-                            {menuItem.children ? (
-                              <ul
-                                className={`nav-sub ${menuItem.active ? "open" : ""
-                                  }`}
-                                style={
-                                  menuItem.active
-                                    ? { display: "block" }
-                                    : { display: "none" }
-                                }
-                              >
-                                {menuItem.children.map((childrenItem, index) => {
-                                  return (
-                                    <li
-                                      key={index}
-                                      className={`nav-sub-item ${childrenItem.selected ? "active show" : ""
-                                        }`}
-                                    >
-                                      {childrenItem.type === "sub" ? (
-                                        <a
-                                          href="javascript"
-                                          className="nav-sub-link sub-with-sub"
-                                          onClick={(event) => {
-                                            event.preventDefault();
-                                            toggleSidemenu(childrenItem);
-                                          }}
-                                        >
-                                          <span className="sidemenu-label">
-                                            {childrenItem.title}
-                                            {childrenItem.active}
-                                          </span>
-                                          {childrenItem.active ? (
-                                            <i className="angle fa fa-angle-down"></i>
-                                          ) : (
-                                            <i
-                                              className={`${menuItem.background} fa angle fa-angle-right `}
-                                            ></i>
-                                          )}
-                                        </a>
-                                      ) : (
-                                        ""
-                                      )}
+                                ) : (
+                                  <i
+                                    className={`${menuItem.background} fa angle fa-angle-right `}
+                                  ></i>
+                                )}
+                              </div>
+                            </a>
+                          ) : (
+                            ""
+                          )}
 
-                                      {childrenItem.type === "link" ? (
-                                        <Link
-                                          href={`${childrenItem.path}`}
-                                          className={`nav-sub-link ${menuItem.selected ? " active" : ""}`}
-                                        >
+                          {menuItem.type === "link" ? (
+                            <Link
+                              href={`${menuItem.path}`}
+                              className={`nav-link ${menuItem.selected ? " active" : ""}`}
+                            >
+                              <span className="shape1"></span>
+                              <span className="shape2"></span>
+                              <i
+                                className={`${menuItem.icon} ${menuIcontype} menu-icon`}
+                              ></i>
+                              <span className="sidemenu-label">
+                                {menuItem.title}
+                              </span>
+                              {menuItem.badge ? (
+                                <label className={menuItem.badge}>
+                                  {menuItem.badgetxt}
+                                </label>
+                              ) : (
+                                ""
+                              )}
+                            </Link>
+                          ) : (
+                            ""
+                          )}
+                          {menuItem.children ? (
+                            <ul
+                              className={`nav-sub ${menuItem.active ? "open" : ""
+                                }`}
+                              style={
+                                menuItem.active
+                                  ? { display: "block" }
+                                  : { display: "none" }
+                              }
+                            >
+                              {menuItem.children.map((childrenItem, index) => {
+                                return (
+                                  <li
+                                    key={index}
+                                    className={`nav-sub-item ${childrenItem.selected ? "active show" : ""
+                                      }`}
+                                  >
+                                    {childrenItem.type === "sub" ? (
+                                      <a
+                                        href="javascript"
+                                        className="nav-sub-link sub-with-sub"
+                                        onClick={(event) => {
+                                          event.preventDefault();
+                                          toggleSidemenu(childrenItem);
+                                        }}
+                                      >
+                                        <span className="sidemenu-label">
                                           {childrenItem.title}
-                                        </Link>
-                                      ) : (
-                                        ""
-                                      )}
-                                      {childrenItem.children ? (
-                                        <ul
-                                          className="sub-nav-sub"
-                                          style={
-                                            childrenItem.active
-                                              ? { display: "block" }
-                                              : { display: "none" }
-                                          }
-                                        >
-                                          {childrenItem.children.map(
-                                            (childrenSubItem, key) => (
-                                              <li
-                                                className={`nav-sub-item ${childrenSubItem.selected
-                                                    ? " active"
-                                                    : ""
-                                                  }`}
-                                                key={key}
-                                              >
-                                                {childrenSubItem.type ===
-                                                  "link" ? (
-                                                  <Link
-                                                    href={`${childrenSubItem.path}`}
-                                                    className={`nav-sub-link ${location.pathname == childrenSubItem.path ? " active" : "" }`}
-                                                  >
-                                                    {childrenSubItem.title}
-                                                  </Link>
-                                                ) : (
-                                                  ""
-                                                )}
+                                          {childrenItem.active}
+                                        </span>
+                                        {childrenItem.active ? (
+                                          <i className="angle fa fa-angle-down"></i>
+                                        ) : (
+                                          <i
+                                            className={`${menuItem.background} fa angle fa-angle-right `}
+                                          ></i>
+                                        )}
+                                      </a>
+                                    ) : (
+                                      ""
+                                    )}
 
-                                                {childrenSubItem.type ===
-                                                  "sub" ? (
-                                                  <Link
-                                                    href="#!"
-                                                    onClick={(event) => {
-                                                      event.preventDefault();
-                                                      toggleSidemenu(
-                                                        childrenSubItem
-                                                      );
-                                                    }} className="nav-sub-item"
-                                                  >
-                                                      <span className="sidemenu-label">
-                                                        {childrenSubItem.title}
-                                                      </span>
-                                                      {childrenSubItem.active ? (
-                                                        <i className="fa fa-angle-down"></i>
-                                                      ) : (
-                                                        <i className="fa fa-angle-right"></i>
-                                                      )}
-                                                  </Link>
-                                                ) : (
-                                                  ""
-                                                )}
-                                              </li>
-                                            )
-                                          )}
-                                        </ul>
-                                      ) : (
-                                        ""
-                                      )}
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            ) : (
-                              ""
-                            )}
-                          </li>
-                        ))}
-                      </Fragment>
-                    ))}
-                  </ul>
-                  <div className="slide-right" id="slide-right">
-                    <i className="fe fe-chevron-right"></i>
-                  </div>
+                                    {childrenItem.type === "link" ? (
+                                      <Link
+                                        href={`${childrenItem.path}`}
+                                        className={`nav-sub-link ${menuItem.selected ? " active" : ""}`}
+                                      >
+                                        {childrenItem.title}
+                                      </Link>
+                                    ) : (
+                                      ""
+                                    )}
+                                    {childrenItem.children ? (
+                                      <ul
+                                        className="sub-nav-sub"
+                                        style={
+                                          childrenItem.active
+                                            ? { display: "block" }
+                                            : { display: "none" }
+                                        }
+                                      >
+                                        {childrenItem.children.map(
+                                          (childrenSubItem, key) => (
+                                            <li
+                                              className={`nav-sub-item ${childrenSubItem.selected
+                                                ? " active"
+                                                : ""
+                                                }`}
+                                              key={key}
+                                            >
+                                              {childrenSubItem.type ===
+                                                "link" ? (
+                                                <Link
+                                                  href={`${childrenSubItem.path}`}
+                                                  className={`nav-sub-link ${location.pathname == childrenSubItem.path ? " active" : ""}`}
+                                                >
+                                                  {childrenSubItem.title}
+                                                </Link>
+                                              ) : (
+                                                ""
+                                              )}
+
+                                              {childrenSubItem.type ===
+                                                "sub" ? (
+                                                <Link
+                                                  href="#!"
+                                                  onClick={(event) => {
+                                                    event.preventDefault();
+                                                    toggleSidemenu(
+                                                      childrenSubItem
+                                                    );
+                                                  }} className="nav-sub-item"
+                                                >
+                                                  <span className="sidemenu-label">
+                                                    {childrenSubItem.title}
+                                                  </span>
+                                                  {childrenSubItem.active ? (
+                                                    <i className="fa fa-angle-down"></i>
+                                                  ) : (
+                                                    <i className="fa fa-angle-right"></i>
+                                                  )}
+                                                </Link>
+                                              ) : (
+                                                ""
+                                              )}
+                                            </li>
+                                          )
+                                        )}
+                                      </ul>
+                                    ) : (
+                                      ""
+                                    )}
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          ) : (
+                            ""
+                          )}
+                        </li>
+                      ))}
+                    </Fragment>
+                  ))}
+                </ul>
+                <div className="slide-right" id="slide-right">
+                  <i className="fe fe-chevron-right"></i>
                 </div>
+              </div>
             </div>
-            </PerfectScrollbar>
-          </div>
+          </PerfectScrollbar>
+        </div>
       </div>
       <div className="jumps-prevent" style={{ paddingTop: "64px" }}></div>
     </Fragment>

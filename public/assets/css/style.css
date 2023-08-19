@@ -31021,7 +31021,8 @@ body.rtl {
 
     .main-sidebar-hide .side-menu .main-logo .icon-logo {
         display: block;
-        margin-left: 10px;
+        /* margin-left: 10px; */
+        margin: auto;
     }
 
     .main-sidebar-hide .side-menu .header-brand-img {
@@ -38461,7 +38462,7 @@ ul.inbox-pagination {
 }
 
 .img-bg {
-    background: url(../img/media/Stars.png);
+    background: url(../img/media/Stars.d277efc1.png);
     background-position: right;
     background-size: auto;
     background-repeat: no-repeat;

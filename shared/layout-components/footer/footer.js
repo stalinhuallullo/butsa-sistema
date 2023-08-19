@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="container">
         <div className="row row-sm">
             <div className="col-md-12">
-                <span>Copyright © 2023 <a href="#!">Spruha</a>. Designed by <a href="https://www.spruko.com/">Spruko</a> All rights reserved.</span>
+                <span>Copyright © 2023 <a href="#!">Butsa</a>. Desarrollado por <a href="https://www.butsa.pe/">Butsa</a> Todos los derechos reservados.</span>
             </div>
         </div>
     </div>

@@ -3,16 +3,16 @@
 import Head from 'next/head'
 import { Button, Col, Form, Row,Alert, Container, Card} from 'react-bootstrap';
 import { useRouter } from 'next/navigation'
-import favicon from "../public/assets/img/brand/favicon.ico"
+import favicon from "../../../public/assets/img/brand/favicon.ico"
 import { useState } from 'react';
 import Link from "next/link";
 // import Dashboard from "../pages/components/dashboard/dashboard"
 
 
 //Images
-import logolight from "../public/assets/img/brand/logo-light.png"
-import user from "../public/assets/img/svgs/user.svg"
-import logo from "../public/assets/img/brand/logo.png"
+import logolight from "../../../public/assets/img/brand/logo-light.png"
+import user from "../../../public/assets/img/svgs/user.svg"
+import logo from "../../../public/assets/img/brand/logo.png"
 
 
 export default function Home() {
