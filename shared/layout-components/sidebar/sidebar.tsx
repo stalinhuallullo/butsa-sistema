@@ -2,10 +2,10 @@ import React, { Fragment, useEffect, useState } from "react";
 import { MENUITEMS } from "./nav";
 import Link from "next/link";
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useRouter } from "next/navigation";
-import { horizontalmenusticky } from "../../../shared/data/switcherdata/switcherdata";
+import { useRouter, usePathname } from "next/navigation";
+import { horizontalmenusticky } from "../../data/switcherdata/switcherdata";
 import dynamic from "next/dynamic";
-let history = [];
+let history:any = [];
 
 //Images
 import logolight from "../../../public/assets/img/brand/logo-white-120px.svg"
@@ -14,24 +14,25 @@ import logo from "../../../public/assets/img/brand/logo.png"
 import icon from "../../../public/assets/img/brand/icon.png"
 
 const SideBar = () => {
-  let location = useRouter();
+  //let location = useRouter();
+  let locationPathname = usePathname()
   const [menuitems, setMenuitems] = useState(MENUITEMS);
   // initial loading
   useEffect(() => {
-    history.push(location.pathname); // add  history to history  stack for current location.pathname to prevent multiple history calls innerWidth  and innerWidth  calls from  multiple users. This is important because the history stack is not always empty when the user clicks  the history
+    history.push(locationPathname); // add  history to history  stack for current locationPathname to prevent multiple history calls innerWidth  and innerWidth  calls from  multiple users. This is important because the history stack is not always empty when the user clicks  the history
     if (history.length > 2) {
       history.shift();
     }
     if (history[0] !== history[1]) {
       setSidemenu();
     }
-    let mainContent = document.querySelector(".main-content");
+    let mainContent: any = document.querySelector(".main-content");
     //when we click on the body to remove
     mainContent.addEventListener("click", mainContentClickFn);
     return () => {
       mainContent.removeEventListener("click", mainContentClickFn);
     };
-  }, [location.pathname, mainContentClickFn, setSidemenu]);
+  }, [locationPathname, mainContentClickFn, setSidemenu]);
 
 
   // location
@@ -46,7 +47,7 @@ const SideBar = () => {
     // setTimeout(classnamechange, 0.1)
   }, []);
   // every chnage this effect calls
-  let menuIcontype;
+  let menuIcontype: any;
   if (document.querySelector("body").classList.contains("horizontalmenu")) {
     menuIcontype = "hor-icon";
   } else {
@@ -70,13 +71,13 @@ const SideBar = () => {
           mainlevel.Items.filter((items) => {
             items.active = false;
             items.selected = false;
-            if (
-              location.pathname === "/spruha/preview/" ||
-              location.pathname === "/spruha/preview"
-            ) {
-              location.pathname = "/spruha/preview/dashboard/";
-            }
-            if (location.pathname === items.path) {
+            // if (
+            //   locationPathname === "/spruha/preview/" ||
+            //   locationPathname === "/spruha/preview"
+            // ) {
+            //   locationPathname = "/spruha/preview/dashboard/";
+            // }
+            if (locationPathname === items.path) {
               items.active = true;
               items.selected = true;
             }
@@ -84,7 +85,7 @@ const SideBar = () => {
               items.children.filter((submenu) => {
                 submenu.active = false;
                 submenu.selected = false;
-                if (location.pathname === submenu.path) {
+                if (locationPathname === submenu.path) {
                   items.active = true;
                   items.selected = true;
                   submenu.active = true;
@@ -94,7 +95,7 @@ const SideBar = () => {
                   submenu.children.filter((submenu1) => {
                     submenu1.active = false;
                     submenu1.selected = false;
-                    if (location.pathname === submenu1.path) {
+                    if (locationPathname === submenu1.path) {
                       items.active = true;
                       items.selected = true;
                       submenu.active = true;
@@ -105,7 +106,7 @@ const SideBar = () => {
                     return submenu1;
                   });
                 }
-                if (location.pathname == "/components/ecommerce/product-detail/[id]" && submenu.path == "/components/ecommerce/product-details") {
+                if (locationPathname == "/components/ecommerce/product-detail/[id]" && submenu.path == "/components/ecommerce/product-details") {
                   items.active = true;
                   items.selected = true;
                   submenu.active = true;
@@ -223,7 +224,7 @@ const SideBar = () => {
           <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
             <div className="main-container-1 active main-sidebar-header">
               <div className="sidemenu-logo">
-                <Link className="main-logo" href={`/components/dashboard/dashboard`}>
+                <Link className="main-logo" href={`/app/dashboard`}>
                   <img
                     src={logolight.src}
                     className="header-brand-img desktop-logo"
@@ -408,7 +409,7 @@ const SideBar = () => {
                                                 "link" ? (
                                                 <Link
                                                   href={`${childrenSubItem.path}`}
-                                                  className={`nav-sub-link ${location.pathname == childrenSubItem.path ? " active" : ""}`}
+                                                  className={`nav-sub-link ${locationPathname == childrenSubItem.path ? " active" : ""}`}
                                                 >
                                                   {childrenSubItem.title}
                                                 </Link>

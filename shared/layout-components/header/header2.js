@@ -111,7 +111,7 @@ function Header2() {
               </a>
             
             <div className="hor-logo">
-              <Link className="main-logo" href={`/components/dashboard/dashboard`}>
+              <Link className="main-logo" href={`/app/dashboard`}>
                 <img src={logo.src} className="header-brand-img desktop-logo" alt="logo" />
                 <img src={logolight.src} className="header-brand-img desktop-logo-dark"
                   alt="logo" />
@@ -120,14 +120,14 @@ function Header2() {
           </div>
           <div className="main-header-center">
             <div className="responsive-logo">
-              <Link href={`/components/dashboard/dashboard`}>
+              <Link href={`/app/dashboard`}>
                 <img
                   src={logo.src}
                   className="mobile-logo"
                   alt="logo"
                 />
               </Link>
-              <Link href={`/components/dashboard/dashboard`}>
+              <Link href={`/app/dashboard`}>
                 <img
                   src={logolight.src}
                   className="mobile-logo-dark"

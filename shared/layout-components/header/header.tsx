@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Dropdown, Container, Form, Nav, Navbar, InputGroup, } from "react-bootstrap";
 import Link  from "next/link";
 import {MENUITEMS} from "../sidebar/nav"
-import Selectoptions from "../../../shared/data/header/headerdata";
+import Selectoptions from "../../data/header/headerdata";
 // FuScreen-start
 
 //Images
@@ -28,15 +28,15 @@ const HeadDropDown = dynamic(
 
 
 // FullScreen-end
-function Header() {
+export default function Header() {
   const openCloseSidebar1 = () => {
-    document.querySelector(".header-settings").classList.toggle("show");
-    document.querySelector(".sidebar-right").classList.toggle("sidebar-open");
+    document.querySelector(".header-settings")?.classList.toggle("show");
+    document.querySelector(".sidebar-right")?.classList.toggle("sidebar-open");
   };
 //  headerToggleButton
 
   const headerToggleButton = () => {
-    let body = document.querySelector("body")
+    let body: any = document.querySelector("body")
     let innerWidth = window.innerWidth
     if (body !== !body) {
       if (innerWidth >= 992) {
@@ -57,12 +57,12 @@ function Header() {
 
 
   function Swicherbutton() {
-    document.querySelector(".demo_changer").classList.toggle("active");
-    document.querySelector(".demo_changer").style.right = "0px";
+    document.querySelector(".demo_changer")?.classList.toggle("active");
+    //document.querySelector(".demo_changer").style.right = "0px";
   }
   const Darkmode = () => {
-    document.querySelector("body").classList.toggle("dark-theme");
-    document.querySelector("#myonoffswitch2").checked = true
+    document.querySelector("body")?.classList.toggle("dark-theme");
+    //document.querySelector("#myonoffswitch2").checked = true
   }
 
   const [show1, setShow1] = useState(false);
@@ -74,22 +74,19 @@ function Header() {
 
 
 
-  let myfunction = (inputvalue) => {
-    // console.log(inputvalue);
+  const myfunction = (inputvalue: string) => {
     document.querySelector(".search-result")?.classList.remove("d-none")
-    // console.log('ok');
-    
-    let i =[]
-    let allElement2 = [];
+    let i: any = []
+    let allElement2: any = [];
     
     MENUITEMS.map(mainlevel => {
       if (mainlevel.Items) {
         setShow1(true)
-        mainlevel.Items.map(sublevel => {
+        mainlevel.Items.map((sublevel: any) => {
           // console.log("sublevel --- ", sublevel)
           if (sublevel.children) {
             sublevel.children.map(sublevel1 => {
-              // console.log("sublevel1 --- ", sublevel1)
+               console.log("sublevel1 --- ", sublevel1)
               i.push(sublevel1)
               if (sublevel1.children) {
                 sublevel1.children.map(sublevel2 => {
@@ -130,6 +127,7 @@ function Header() {
       setNavData(allElement2)
       
   }
+
   return (
     <Fragment>
       <Navbar expand="lg" className="main-header side-header sticky"
@@ -141,7 +139,7 @@ function Header() {
               <span></span>
             </a>
             <div className="hor-logo">
-              <Link className="main-logo" href="/components/dashboard/dashboard">
+              <Link className="main-logo" href="/app/dashboard">
                 <img src={logo.src} className="header-brand-img desktop-logo" alt="logo" />
                 <img src={logolight.src} className="header-brand-img desktop-logo-dark" alt="logo" />
               </Link>
@@ -149,10 +147,10 @@ function Header() {
           </div>
           <div className="main-header-center">
             <div className="responsive-logo">
-              <Link href="/components/dashboard/dashboard">
+              <Link href="/app/dashboard">
                 <img src={logo.src} className="mobile-logo" alt="logo" />
               </Link>
-              <Link href="/components/dashboard/dashboard">
+              <Link href="/app/dashboard">
                 <img src={logolight.src} className="mobile-logo-dark" alt="logo" />
               </Link>
             </div>
@@ -170,7 +168,7 @@ function Header() {
                 </div>
                 <ul className='mt-2'>
                     {show2 ?
-                  NavData.map((e) => 
+                  NavData.map((e: any) => 
                   <li  key={Math.random()} className="">
                     <Link href={`${e.path}/`}  className='search-result-item' onClick={()=>{setShow1(false),setInputValue("")}} >{e.title}</Link>
                   </li>
@@ -202,8 +200,3 @@ function Header() {
   );
 }
 
-Header.propTypes = {};
-
-Header.defaultProps = {};
-
-export default Header;

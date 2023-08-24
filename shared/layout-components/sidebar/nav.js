@@ -10,7 +10,7 @@ export const MENUITEMS = [
         selected: true,
         title: "Dashboard",
       }
-    ],
+    ]
   },
   {
     menutitle: "APLICACIONES",
@@ -21,7 +21,30 @@ export const MENUITEMS = [
         type: "link",
         active: false,
         selected: false,
+        title: "Servicios del dia"
+      },
+      {
         title: "Servicios del dia",
+        icon: "fa fa-car",
+        type: "sub",
+        active: false,
+        selected: false,
+        children: [
+          {
+            path: "/app/applications/services-day",
+            type: "link",
+            active: false,
+            selected: false,
+            title: "Tabla",
+          },
+          {
+            path: "/app/applications/services-day/new",
+            type: "link",
+            active: false,
+            selected: false,
+            title: "Nuevo",
+          }
+        ]
       },
       {
         path: "/app/applications/map",
@@ -39,7 +62,7 @@ export const MENUITEMS = [
         selected: false,
         title: "Rutas",
       }
-    ],
+    ]
   },
   {
     menutitle: "REPORTES",
@@ -60,7 +83,7 @@ export const MENUITEMS = [
         selected: false,
         title: "KPI",
       }
-    ],
+    ]
   },
   {
     menutitle: "CONFIGURACIONES",
@@ -97,6 +120,6 @@ export const MENUITEMS = [
         selected: false,
         title: "Salir",
       }
-    ],
-  },
+    ]
+  }
 ];

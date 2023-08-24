@@ -12,9 +12,7 @@
 @import "../public/assets/plugins/multipleselect/multiple-select.css";
 @import "../public/assets/switcher/css/switcher.css";
 @import "../public/assets/switcher/demo.css";
-@import "../public/assets/plugins/select2/css/select2.min.css";
-@import "../public/assets/plugins/multipleselect/multiple-select.css";
-@import "../public/assets/scss/variables";
+
 
 // perfect scrollbar
 @import "react-perfect-scrollbar/dist/css/styles.css";
@@ -2741,3 +2739,13 @@ ol.progtrckr li.progtrckr-todo {
   font-weight: bolder;
   font-size: large;
 }
+
+
+
+
+// components
+@import "../shared/layout-components/children/table-stores/TableMembers.module.scss";
+@import "../shared/layout-components/children/boxtodrag/BoxToDrag.module.scss";
+@import "../shared/layout-components/children/boxtodrag/downloadtemplate/DownloadTemplate.module.scss";
+@import "../shared/layout-components/children/modals/ModalConfirm.module.scss";
+@import "../shared/layout-components/children/modals/ModalInfo.module.scss";

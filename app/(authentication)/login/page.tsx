@@ -34,17 +34,16 @@ export default function Home() {
   }
 
   const Login = (e) => {
-    console.log(data);
-    if (data.email == "adminnextjs@gmail.com" && data.password == "1234567890"){
-      routeChange()
-    }
-    else{
-      setError("The Auction details did not Match")
-      setData({
-        "email": "adminnextjs@gmail.com",
-       "password": "1234567890",
-       })
-    }
+    // if (data.email == "adminnextjs@gmail.com" && data.password == "1234567890"){
+    //   routeChange()
+    // }
+    // else{
+    //   setError("The Auction details did not Match")
+    //   setData({
+    //     "email": "adminnextjs@gmail.com",
+    //    "password": "1234567890",
+    //    })
+    // }
   }
 
 

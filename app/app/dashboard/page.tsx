@@ -100,12 +100,14 @@ export default function Dashboard() {
                   <div className="row align-items-center">
                     <div className="offset-xl-3 offset-sm-6 col-xl-8 col-sm-6 col-12 img-bg ">
                       <h4 className="d-flex  mb-3">
-                        <span className="font-weight-bold text-white ">Sonia Taylor!</span>
+                        <span className="font-weight-bold text-white ">Taylor Swift!</span>
                       </h4>
-                      <p className="tx-white-7 mb-1">You have two projects to finish, you had
-                        completed <b className="text-warning">57%</b> from your montly
-                        level,
-                        Keep going to your level</p>
+                      <p className="tx-white-7 mb-1">
+                        <b className="text-warning">Bienvenido</b> a nuestra
+                        plataforma en línea. Estamos encantados de que hayas
+                        decidido visitarnos. Aquí encontrarás una amplia
+                        variedad de herramientas y recursos para ayudarte a
+                        alcanzar tus metas y mejorar tu día a día.</p>
                     </div>
                     <img src={work3.src} alt="user-img" />
                   </div>

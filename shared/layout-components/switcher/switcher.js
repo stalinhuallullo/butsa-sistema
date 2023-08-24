@@ -17,7 +17,7 @@ import moneybag from "../../../public/assets/switcher/img/money-bag.png"
 
 
 
-function Switcher({SwitcherAction,changePrimaryColor,darkPrimaryColor}) {
+export default function Switcher({SwitcherAction,changePrimaryColor,darkPrimaryColor}) {
   const router = useRouter()
   const [Basic, setShow1] = useState(false);
   useEffect(() => {
@@ -439,11 +439,8 @@ function Switcher({SwitcherAction,changePrimaryColor,darkPrimaryColor}) {
   );
 }
 
-Switcher.propTypes = {};
-
-Switcher.defaultProps = {};
 
 const mapStateToProps = (state) => ({
   local_Products : state
 })
-export default connect(mapStateToProps,{SwitcherAction,changePrimaryColor,darkPrimaryColor})(Switcher);
+//export default connect(mapStateToProps,{SwitcherAction,changePrimaryColor,darkPrimaryColor})(Switcher);

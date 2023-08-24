@@ -1,7 +1,8 @@
 import React from "react";
 import Link  from "next/link";
 import { Form } from "react-bootstrap";
-function Rightside() {
+
+export default function Rightside() {
   const openCloseSidebar = () => {
     document.querySelector(".header-settings").classList.remove("show");
     document.querySelector(".sidebar-right").classList.remove("sidebar-open");
@@ -266,8 +267,4 @@ function Rightside() {
     </div>
   );
 }
-Rightside.propTypes = {};
 
-Rightside.defaultProps = {};
-
-export default Rightside;
