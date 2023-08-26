@@ -1,22 +1,21 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { Button, Input, InputRef, Space, Table } from "antd";
+import { Input, InputRef, Space, Table } from "antd";
 import ModalConfirm from "../modals/ModalConfirm";
 import { useGlobalContextServicesDay } from "@/interfaces/reducer/services-day-context";
 import { useUserInfoGlobalContent } from "@/interfaces/userInfo-context";
-import { validateHeaders, validateRows } from "@/utils/data-utils/validateTable";
 import { ColumnsData, columnsServicesDay, onChangeData } from "@/utils/component-utils/tableColumnsServicesDay";
 import Highlighter from "react-highlight-words";
 import type { ColumnType, ColumnsType } from 'antd/es/table';
 import { FilterConfirmProps } from "antd/es/table/interface";
-import { InfoTableServicesDay } from "@/interfaces/services-day-interface";
-
+import SearchIcon from '@mui/icons-material/Search';
+import { Button } from "react-bootstrap";
 
 export default function TableServicesDay() {
 
 
     const { arrayServicesDay, setArrayServicesDay } = useGlobalContextServicesDay()
     const [isPopUpVisible, setIsPopUpVisible] = useState(false)
-    const [columnsServicesDayTmp, setColumnsServicesDayTmp] = useState<ColumnsData[] >([])
+    const [columnsServicesDayTmp, setColumnsServicesDayTmp] = useState<ColumnsData[]>([])
 
     // User Info
     const { userDataSession } = useUserInfoGlobalContent()
@@ -31,15 +30,20 @@ export default function TableServicesDay() {
     // }, [arrayServicesDay])
 
     useEffect(() => {
-        const mey = columnsServicesDay.map((item: ColumnsData) => {
-            const ddd: any = item 
-            return {
-                ...item,
-                ...getColumnSearchProps(ddd)
+        const columnsServicesDayTmp: any = columnsServicesDay.map((item: ColumnsData) => {
+            const tmp: any = item
+            if(!["options", "estado_servicio"].includes(item.dataIndex+"")){
+                return {
+                    ...item,
+                    ...getColumnSearchProps(tmp.dataIndex)
+                }
+            } else {
+                return {
+                    ...item
+                }
             }
         })
-        console.log("mey => ", mey)
-        setColumnsServicesDayTmp(mey)
+        setColumnsServicesDayTmp(columnsServicesDayTmp)
     }, [arrayServicesDay])
 
 
@@ -62,83 +66,85 @@ export default function TableServicesDay() {
         setSearchText('');
     };
 
-    const getColumnSearchProps = (dataIndex: DataIndex): ColumnType<DataIndex> => ({
-        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
-            <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
-                <Input
-                    ref={searchInput}
-                    placeholder={`Search ${dataIndex}`}
-                    value={selectedKeys[0]}
-                    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-                    onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
-                    style={{ marginBottom: 8, display: 'block' }}
-                />
-                <Space>
-                    <Button
-                        type="primary"
-                        onClick={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
-                        // icon={<SearchOutlined />}
-                        size="small"
-                        style={{ width: 90 }}
-                    >
-                        Search
-                    </Button>
-                    <Button
-                        onClick={() => clearFilters && handleReset(clearFilters)}
-                        size="small"
-                        style={{ width: 90 }}
-                    >
-                        Reset
-                    </Button>
-                    <Button
-                        type="link"
-                        size="small"
-                        onClick={() => {
-                            confirm({ closeDropdown: false });
-                            setSearchText((selectedKeys as string[])[0]);
-                            setSearchedColumn(dataIndex);
-                        }}
-                    >
-                        Filter
-                    </Button>
-                    <Button
-                        // type="link"
-                        // size="small"
-                        onClick={() => {
-                            close();
-                        }}
-                    >
-                        close
-                    </Button>
-                </Space>
-            </div>
-        ),
-        filterIcon: (filtered: boolean) => (
-            // <SearchOutlined style={{ color: filtered ? '#1677ff' : undefined }} />
-            <>tay</>
-        ),
-        onFilter: (value: any, record: any) =>
-            record[dataIndex]
-                .toString()
-                .toLowerCase()
-                .includes((value as string).toLowerCase()),
-        onFilterDropdownOpenChange: (visible: any) => {
-            if (visible) {
-                setTimeout(() => searchInput.current?.select(), 100);
-            }
-        },
-        render: (text: string) =>
-            searchedColumn === dataIndex ? (
-                <Highlighter
-                    highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-                    searchWords={[searchText]}
-                    autoEscape
-                    textToHighlight={text ? text.toString() : ''}
-                />
-            ) : (
-                text
+    const getColumnSearchProps = (dataIndex: DataIndex): ColumnType<DataIndex> => {
+        return  ({
+            filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+                <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
+                    <Input
+                        ref={searchInput}
+                        placeholder={`Search ${dataIndex}`}
+                        value={selectedKeys[0]}
+                        onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                        onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
+                        style={{ marginBottom: 8, display: 'block' }}
+                    />
+                    <Space>
+                        <Button
+                            variant="primary"
+                            onClick={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
+                            // icon={<SearchOutlined />}
+                            size="sm"
+                            // style={{ width: 90 }}
+                        >
+                            Search
+                        </Button>
+                        <Button
+                            variant="outline-dark"
+                            onClick={() => clearFilters && handleReset(clearFilters)}
+                            size="sm"
+                            // style={{ width: 90 }}
+                        >
+                            Reset
+                        </Button>
+                        <Button
+                            variant="link"
+                            size="sm"
+                            onClick={() => {
+                                confirm({ closeDropdown: false });
+                                setSearchText((selectedKeys as string[])[0]);
+                                setSearchedColumn(dataIndex);
+                            }}
+                        >
+                            Filter
+                        </Button>
+                        <Button
+                            variant="link"
+                            size="sm"
+                            onClick={() => {
+                                close();
+                            }}
+                        >
+                            close
+                        </Button>
+                    </Space>
+                </div>
             ),
-    });
+            filterIcon: (filtered: boolean) => (
+                <SearchIcon style={{ color: filtered ? '#1677ff' : undefined, width: "15px" }} />
+            ),
+            onFilter: (value: any, record: any) =>
+                record[dataIndex]
+                    .toString()
+                    .toLowerCase()
+                    .includes((value as string).toLowerCase()),
+            onFilterDropdownOpenChange: (visible: any) => {
+                if (visible) {
+                    setTimeout(() => searchInput.current?.select(), 100);
+                }
+            },
+            render: (text: string) =>
+                searchedColumn === dataIndex ? (
+                    <Highlighter
+                        highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+                        searchWords={[searchText]}
+                        autoEscape
+                        textToHighlight={text ? text.toString() : ''}
+                    />
+                ) : (
+                    text
+                ),
+        })
+    };
 
     return (
         <Fragment>

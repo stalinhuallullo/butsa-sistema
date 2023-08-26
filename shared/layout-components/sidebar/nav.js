@@ -16,14 +16,6 @@ export const MENUITEMS = [
     menutitle: "APLICACIONES",
     Items: [
       {
-        path: "/app/applications/services-day",
-        icon: "fa fa-car",
-        type: "link",
-        active: false,
-        selected: false,
-        title: "Servicios del dia"
-      },
-      {
         title: "Servicios del dia",
         icon: "fa fa-car",
         type: "sub",

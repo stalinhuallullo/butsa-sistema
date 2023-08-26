@@ -23,8 +23,8 @@ export default function ServicesDay() {
                 "fecha_registro": "13 de Oct, 2023 9:45 am",
                 "rutas": "10",
                 "jabas": "1989",
-                "estado_servicio": "En proceso",
-                "cargo_seco": "img",
+                "estado_servicio": "in-progress",
+                // "cargo_seco": "img",
                 "fecha_finalizacion_servicio": "13 de Oct, 2023 4:20 pm",
                 "usuario": "Taylor Swift"
             }
