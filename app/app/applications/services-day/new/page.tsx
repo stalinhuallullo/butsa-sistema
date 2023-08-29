@@ -15,29 +15,29 @@ export default function ServicesDay() {
         filename: ''
     })
 
-    useEffect( () => {
-        const info: InfoTableStores[] = Array.from(Array(100).keys()).map(()=> {
-            return {
-                "FECHA_DESPACHO": "aaa",
-                "TIENDA": "bbb",
-                "ID_TIENDA": "ccc",
-                "RUTA": "ddd",
-                "GUIA": "eee",
-                "VALOR": "fff",
-                "PROVEEDOR": "ggg",
-                "PLACA": "hhh",
-                "CONDUCTOR": "iiiii",
-                "AUXILIAR": "jjj",
-                "ESTADO": "kkkk",
-                "FECHA_DE_ENTREGA": "lll",
-                "OBSERVACION": "mmm",
-                "ENTREGAS_CONFORME": "nnnn"
-            }
-        })
-        setArrayStores({
-            newData: info,
-            filename: ''
-        })
+    useEffect(() => {
+        // const info: InfoTableStores[] = Array.from(Array(100).keys()).map(()=> {
+        //     return {
+        //         "FECHA_DESPACHO": "aaa",
+        //         "TIENDA": "bbb",
+        //         "ID_TIENDA": "ccc",
+        //         "RUTA": "ddd",
+        //         "GUIA": "eee",
+        //         "VALOR": "fff",
+        //         "PROVEEDOR": "ggg",
+        //         "PLACA": "hhh",
+        //         "CONDUCTOR": "iiiii",
+        //         "AUXILIAR": "jjj",
+        //         "ESTADO": "kkkk",
+        //         "FECHA_DE_ENTREGA": "lll",
+        //         "OBSERVACION": "mmm",
+        //         "ENTREGAS_CONFORME": "nnnn"
+        //     }
+        // })
+        // setArrayStores({
+        //     newData: info,
+        //     filename: ''
+        // })
 
     }, [])
 
@@ -53,7 +53,7 @@ export default function ServicesDay() {
                     <Card className="custom-card">
                         <Card.Body>
                             <MyGlobalContextStores.Provider value={{ arrayStores, setArrayStores }}>
-                                    {arrayStores.newData.length !== 0 ? <TableStores /> : <BoxToDrag />}
+                                {arrayStores.newData.length !== 0 ? <TableStores /> : <BoxToDrag />}
                             </MyGlobalContextStores.Provider>
                         </Card.Body>
                     </Card>

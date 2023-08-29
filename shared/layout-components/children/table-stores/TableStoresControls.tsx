@@ -17,15 +17,15 @@ const TableStoresControls = (props: {
                     type='dashed'
                     style={{ backgroundColor: '#e24045' }}
                     onClick={props.tryAgain}>
-                    {t('uploadmembers:dont')}
+                    {t('uploadstores:dont')}
                 </Button>
             ) : (
                 <div style={{ display: 'flex', gap: '12px' }}>
                     <Button type={'primary'} onClick={props.cleanStores}>
-                        {t('uploadmembers:cancel')}
+                        {t('uploadstores:cancel')}
                     </Button>
                     <Button type='primary' onClick={props.submitStores}>
-                        {t('uploadmembers:continue')}
+                        {t('uploadstores:continue')}
                     </Button>
                 </div>
             )}

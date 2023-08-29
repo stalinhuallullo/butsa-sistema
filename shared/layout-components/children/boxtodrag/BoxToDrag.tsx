@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import { MdFileUpload } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
@@ -15,16 +16,19 @@ type PropsBoxToDrag = {
   onUploadComplete?: () => void
 }
 
-const BoxToDrag = ({
-  onUploadComplete = () => {}
-}: PropsBoxToDrag): JSX.Element => {
+export default function BoxToDrag ({ onUploadComplete = () => { } }: PropsBoxToDrag) {
   const { t } = useTranslation()
   const { setArrayStores } = useGlobalContextStores()
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+  
 
-  const handleFileUpload = ({ file }: UploadChangeParam) => {
+  const handleFileUpload = ({ file, fileList, event }: UploadChangeParam) => {
     const { status } = file
 
+    console.log("file ==> ", file)
+    console.log("fileList ==> ", fileList)
+    console.log("event ==> ", event)
+    console.log("status ==> ", status)
     if (status === 'done') {
       onUploadComplete()
       // This show a pop up when the user upload a file
@@ -40,7 +44,8 @@ const BoxToDrag = ({
           multiple={false}
           maxCount={1}
           data-testid='input-file-data-csv'
-          accept='.csv,.xlsx'
+          accept='.xlsx,.csv,.xls'
+          //action={"http://localhost:3000/api/v1/services-day"}
           onChange={handleFileUpload}>
           <div className='s-clickhere'>
             <div className='s-iconUpload'>
@@ -73,4 +78,3 @@ const BoxToDrag = ({
   )
 }
 
-export default BoxToDrag

@@ -1,0 +1,7 @@
+{
+    "locales": ["en-US", "es-ES"],
+    "defaultLocale": "en-US",
+    "pages": {
+      "*": ["common", "uploadstores"]
+    }
+}

@@ -3,9 +3,10 @@ import { convertCSVtoJSON } from './csvToJson';
 
 export function setUploadFileToArray(
   file: UploadFile<any>,
-  setArrayMembers: any,
+  setArrayStores: any,
   setIsModalVisible: any
 ) {
+  console.log("setUploadFileToArray ==> ", file)
   const reader = new FileReader();
   reader.onload = function (p) {
     const result = p.target?.result;
@@ -35,7 +36,7 @@ export function setUploadFileToArray(
     if(newData.length===0){
       setIsModalVisible(true)
     } else {
-      setArrayMembers({ newData: newData, filename: file.name.split('.')[0] });
+      setArrayStores({ newData: newData, filename: file.name.split('.')[0] });
     }
   };
   const infoFileBlob = file.originFileObj as Blob;
