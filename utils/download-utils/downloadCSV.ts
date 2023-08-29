@@ -1,4 +1,4 @@
-import XLSX from 'xlsx'
+import * as XLSX from 'xlsx'
 import { fetcherGet, fetcherPost } from "../fetch-api/methods";
 import { formatTime } from '../data-utils/formatTime';
  

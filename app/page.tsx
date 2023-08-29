@@ -36,7 +36,7 @@ export default function Home() {
 
   const Login = async (e) => {
     if (validateLogin()) {
-      const responseAuth =  await fetcherPost('/api/login', data);
+      const responseAuth =  await fetcherPost('/api/v1/login', data);
       routeChange()
      
     }

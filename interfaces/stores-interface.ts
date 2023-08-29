@@ -8,10 +8,10 @@ enum Fields {
   };
   
   export interface InfoTableStores extends FieldsObject {
-    FECHA_DESPACHO: string;
-    TIENDA: string;
-    ID_TIENDA: string;
-    RUTA: string;
+    FECHA_DESPACHO?: string;
+    TIENDA?: string;
+    ID_TIENDA?: string;
+    RUTA?: string;
     GUIA?: string;
     VALOR?: string;
     PROVEEDOR?: string;

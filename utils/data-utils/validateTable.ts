@@ -1,4 +1,4 @@
-import { BasicInfoFile, InfoTableServicesDay } from '@/interfaces/stores-interface';
+import { BasicInfoFile, InfoTableStores } from '@/interfaces/stores-interface';
 import { columns } from '../component-utils/tableColumns';
 
 import patterns from './patternRegex';
@@ -32,13 +32,31 @@ export const validateHeaders = (
 };
 
 export const validateRows = (arrayStores: BasicInfoFile, setBadRowFormat: any) => {
-  arrayStores.newData.forEach((user: InfoTableServicesDay) => {
+  arrayStores.newData.forEach((user: InfoTableStores) => {
+    // console.log("user ============> ", user)
+    // console.log("user !user.FECHA_DESPACHO =======> ", !user.FECHA_DESPACHO)
+    // console.log("user !user.TIENDA =======> ", !user.TIENDA)
+    // console.log("user !user.RUTA =======> ", !user.RUTA)
+    // console.log("user !user.GUIA =======> ", !user.GUIA)
+    // console.log("user !user.VALOR =======> ", !user.VALOR)
+    // console.log("user !user.PROVEEDOR =======> ", !user.PROVEEDOR)
+    // console.log("user !user.PLACA =======> ", !user.PLACA)
+    // console.log("user !user.CONDUCTOR =======> ", !user.CONDUCTOR)
+    // console.log("user !user.AUXILIAR =======> ", !user.AUXILIAR)
+    // console.log("user !user.ESTADO =======> ", !user.ESTADO)
+    // console.log("user !user.OBSERVACION =======> ", !user.OBSERVACION)
+    // console.log("user !user.ENTREGAS_CONFORME =======> ", !user.ENTREGAS_CONFORME)
     try {
+
+
       if (!user.FECHA_DESPACHO) {
         setBadRowFormat((prev: string[]) => [...prev, 'FECHA_DESPACHO']);
       }
       if (!user.TIENDA) {
         setBadRowFormat((prev: string[]) => [...prev, 'TIENDA']);
+      }
+      if (!user.ID_TIENDA) {
+        setBadRowFormat((prev: string[]) => [...prev, 'ID_TIENDA']);
       }
       if (!user.RUTA) {
         setBadRowFormat((prev: string[]) => [...prev, 'RUTA']);
@@ -119,7 +137,7 @@ export const validateDuplicateManagerEmail = (
 
   const arrayManagersEmail: (string | undefined)[] = [];
 
-  arrayStores.newData.forEach((user: InfoTableServicesDay) => {
+  arrayStores.newData.forEach((user: InfoTableStores) => {
 
     const listManagerEmail: (string | undefined)[] = user['Managers Email Address'] ? user['Managers Email Address']!.split('::') : []
 
@@ -149,11 +167,11 @@ export const validateDuplicateEmails = (
 ) => {
   const arrayEmailAddress: (string | undefined)[] = [];
 
-  const allEmails = arrayStores.newData.map((user: InfoTableServicesDay) => {
+  const allEmails = arrayStores.newData.map((user: InfoTableStores) => {
     return user['Email Address']
   })
 
-  arrayStores.newData.forEach((user: InfoTableServicesDay) => {
+  arrayStores.newData.forEach((user: InfoTableStores) => {
     const sameEmails = allEmails.filter((item, index) => allEmails.indexOf(item) !== index)
     if (
       user['Email Address'] !== undefined &&

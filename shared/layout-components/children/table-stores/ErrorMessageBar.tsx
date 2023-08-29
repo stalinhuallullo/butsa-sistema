@@ -15,7 +15,7 @@ const ErrorMessageBar = (props: {
   return (
     <Collapse>
       <Panel
-        header='We found some errors, click here to show/hide them'
+        header='Encontramos algunos errores, haga clic aquí para mostrarlos/ocultarlos'
         key='1'>
         {props.arrayBadHeaders.length > 0 && (
           <CollapsableMessageAlert
@@ -25,20 +25,20 @@ const ErrorMessageBar = (props: {
             useTitle='headerError'
           />
         )}
-        {props.arrayDuplicateManagerEmail.length > 0 && (
+        {/* {props.arrayDuplicateManagerEmail.length > 0 && (
           <CollapsableMessageAlert
             translationTitle={"Un manager no puede ser manager de si mismo, verifica la fila de los siguientes correos:"}
             arrayErrorInfo={props.arrayDuplicateManagerEmail}
             useTitle='duplicateManagerEmailError'
           />
-        )}
-        {props.arrayDuplicateEmails.length > 0 && (
+        )} */}
+        {/* {props.arrayDuplicateEmails.length > 0 && (
           <CollapsableMessageAlert
             translationTitle={"Los emails deben ser unicos, verifica la fila de los siguientes correos:"}
             arrayErrorInfo={props.arrayDuplicateEmails}
             useTitle='duplicateEmailError'
           />
-        )}
+        )} */}
         {props.badRowFormat.length > 0 && (
           <CollapsableMessageAlert
             translationTitle={"Lo sentimos, hemos encontrado errores de formato en tus filas. Por favor revísalos en:"}

@@ -5,7 +5,7 @@ import ModalConfirm from "../modals/ModalConfirm";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/navigation";
 import { useGlobalContextStores } from "@/interfaces/reducer/stores-context";
-import { validateDuplicateEmails, validateDuplicateManagerEmail, validateHeaders, validateRows } from "@/utils/data-utils/validateTable";
+import { validateHeaders, validateRows } from "@/utils/data-utils/validateTable";
 import { columns, onChangeData } from "@/utils/component-utils/tableColumns";
 import TableStoresControls from "./TableStoresControls";
 import { uploadStores } from "@/utils/data-utils/submitData";
@@ -42,7 +42,7 @@ export default function TableStores() {
         showModal()
         await uploadStores(userDataSession, arrayStores, "asPath")
         setIsPopUpVisible(false)
-        router.push(`/history/`)
+        router.push(`/app/applications/services-day/new`)
     }
 
     function goBackBox() {
@@ -57,9 +57,9 @@ export default function TableStores() {
     const isThereAnError = (): Boolean => {
         return (
             badRowFormat.length > 0 ||
-            arrayBadHeaders.length > 0 ||
-            arrayDuplicateManagerEmail.length > 0 ||
-            arrayDuplicateEmails.length > 0
+            arrayBadHeaders.length > 0 
+            //arrayDuplicateManagerEmail.length > 0 ||
+            //arrayDuplicateEmails.length > 0
         )
     }
 

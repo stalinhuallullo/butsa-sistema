@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { MdFileUpload } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
-import { Upload } from 'antd'
+import { Upload, UploadFile } from 'antd'
 import { UploadChangeParam } from 'antd/lib/upload'
 import DownloadTemplate from './downloadtemplate/DownloadTemplate'
 import ModalInfo from '../modals/ModalInfo'
@@ -16,36 +16,41 @@ type PropsBoxToDrag = {
   onUploadComplete?: () => void
 }
 
-export default function BoxToDrag ({ onUploadComplete = () => { } }: PropsBoxToDrag) {
+export default function BoxToDrag({ onUploadComplete = () => { } }: PropsBoxToDrag) {
   const { t } = useTranslation()
   const { setArrayStores } = useGlobalContextStores()
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
-  
 
-  const handleFileUpload = ({ file, fileList, event }: UploadChangeParam) => {
+
+  const handleFileUpload = ({ file, fileList, event }: UploadChangeParam<UploadFile<any>>) => {
     const { status } = file
 
-    console.log("file ==> ", file)
-    console.log("fileList ==> ", fileList)
-    console.log("event ==> ", event)
-    console.log("status ==> ", status)
     if (status === 'done') {
       onUploadComplete()
+      // console.log("file ==> ", file)
+      // console.log("status ==> ", status)
       // This show a pop up when the user upload a file
       // message.success(`${file.name} file uploaded successfully.`)
       setUploadFileToArray(file, setArrayStores, setIsModalVisible)
     }
   }
-
+  const dummyRequest = async ({ file, onSuccess }: any) => {
+    setTimeout(() => {
+      onSuccess("ok");
+    }, 0);
+  }
   return (
     <>
       <div className='s-box-v2'>
         <Dragger
+          name='file'
           multiple={false}
           maxCount={1}
           data-testid='input-file-data-csv'
-          accept='.xlsx,.csv,.xls'
+          accept='.csv,.xlsx'
           //action={"http://localhost:3000/api/v1/services-day"}
+          // showUploadList={false}
+          customRequest={dummyRequest}
           onChange={handleFileUpload}>
           <div className='s-clickhere'>
             <div className='s-iconUpload'>
