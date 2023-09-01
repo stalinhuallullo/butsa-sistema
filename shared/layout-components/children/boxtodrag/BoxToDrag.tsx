@@ -1,5 +1,6 @@
+"use client"
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MdFileUpload } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import { Upload, UploadFile } from 'antd'
@@ -18,7 +19,7 @@ type PropsBoxToDrag = {
 
 export default function BoxToDrag({ onUploadComplete = () => { } }: PropsBoxToDrag) {
   const { t } = useTranslation()
-  const { setArrayStores } = useGlobalContextStores()
+  const { arrayStores, setArrayStores } = useGlobalContextStores()
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
 
 
@@ -27,13 +28,12 @@ export default function BoxToDrag({ onUploadComplete = () => { } }: PropsBoxToDr
 
     if (status === 'done') {
       onUploadComplete()
-      // console.log("file ==> ", file)
-      // console.log("status ==> ", status)
       // This show a pop up when the user upload a file
       // message.success(`${file.name} file uploaded successfully.`)
       setUploadFileToArray(file, setArrayStores, setIsModalVisible)
     }
   }
+
   const dummyRequest = async ({ file, onSuccess }: any) => {
     setTimeout(() => {
       onSuccess("ok");
@@ -48,8 +48,6 @@ export default function BoxToDrag({ onUploadComplete = () => { } }: PropsBoxToDr
           maxCount={1}
           data-testid='input-file-data-csv'
           accept='.csv,.xlsx'
-          //action={"http://localhost:3000/api/v1/services-day"}
-          // showUploadList={false}
           customRequest={dummyRequest}
           onChange={handleFileUpload}>
           <div className='s-clickhere'>
@@ -57,9 +55,9 @@ export default function BoxToDrag({ onUploadComplete = () => { } }: PropsBoxToDr
               <MdFileUpload data-testid='file-image' />
             </div>
             <div className='s-textclickhere'>
-              {"Selecciona o arrastra tu archivo .csv"}
+              {t('uploadstores:click-here')}
               <br></br>
-              {"para empezar a subir el servicio del dia"}
+              {t('uploadstores:upload')}
             </div>
             {isModalVisible ? (
               <ModalInfo

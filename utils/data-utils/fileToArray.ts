@@ -9,56 +9,28 @@ export function setUploadFileToArray(
   setArrayStores: any,
   setIsModalVisible: any
 ) {
-  // console.log("setUploadFileToArray ==> ", file)
   const reader = new FileReader();
   reader.onload = function (p) {
     const result = p.target?.result;
-    // console.log("result ==> ", result)
     const data = convertCSVtoJSON(result);
+
     const newData = data
       .filter((item) => item.PROVEEDOR === "PALOMINO")
-      .map((item) => {
+      .map((x) => {
         return Object.fromEntries(
-          Object.entries(item).map(([headerName, cellValue]) => {
-            // delete space before and after the text
+          Object.entries(x).map(([headerName, cellValue]) => {
             if (typeof cellValue === 'string') {
               cellValue = cellValue.trim();
             }
-            if (headerName === "FECHA_DESPACHO") {
-              console.log("FECHA_DESPACHO ==> ", cellValue)
-            }
-            // if (headerName === "FECHA_DESPACHO") {
-            //   const parsedDate: Date = new Date(cellValue);
-            //   parsedDate.setHours(parsedDate.getHours() + timezoneOffset); // utc-dates
-            //   cellValue = df(parsedDate, "dd/mm/yyyy");
-            // }
             // set empty string in budget as undefined, because budget is treated as number later
-            if (["ENTREGAS_CONFORME", "OBSERVACION"].includes(headerName) && cellValue === '') {
-              cellValue = "";
-            }
+            // if (["ENTREGAS_CONFORME", "OBSERVACION"].includes(headerName) && cellValue === '') {
+            //   cellValue = "";
+            // }
             return [headerName, cellValue];
           })
         )
       })
-    console.log("newData ===> ", newData)
-    // const newData = data.map((x) => {
-    //   return Object.fromEntries(
-    //     Object.entries(x).map(([headerName, cellValue]) => {
-    //       // delete space before and after the text
-    //       if (typeof cellValue === 'string') {
-    //         cellValue = cellValue.trim();
-    //       }
-    //       // set empty string in budget as undefined, because budget is treated as number later
-    //       if (["ENTREGAS_CONFORME", "OBSERVACION"].includes(headerName) && cellValue === '') {
-    //         cellValue = "";
-    //       }
-    //       return [headerName, cellValue];
-    //     })
-    //   )
-    // }).map((item) => {
-    //   console.log("item.PROVEEDOR ==> ", item.PROVEEDOR)
-    //   //item.PROVEEDOR === "PALOMINO"
-    // });
+
     if (newData.length === 0) {
       setIsModalVisible(true)
     } else {

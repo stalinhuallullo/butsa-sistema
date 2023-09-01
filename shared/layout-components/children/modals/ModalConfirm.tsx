@@ -31,19 +31,19 @@ export default function ModalConfirm({
       {/* {query.group === 'abc' ? ( */}
         <Modal
           maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
-          cancelText={t('uploadmembers:modal-cancel-text')}
-          okText={t('uploadmembers:modal-ok-text')}
+          cancelText={t('uploadstores:modal-cancel-text')}
+          okText={t('uploadstores:modal-ok-text')}
           title={
             <section className='modal-alert-icon'>
               <GrCircleAlert />
             </section>
           }
-          visible={isModalVisible}
+          open={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}>
-          <p className='modal-text-up'>{t('uploadmembers:modal-members')}</p>
+          <p className='modal-text-up'>{t('uploadstores:modal-members')}</p>
           <p className='modal-text-bottom'>
-            {t('uploadmembers:modal-members-question')}
+            {t('uploadstores:modal-members-question')}
           </p>
         </Modal>
       {/* ) : (
@@ -55,11 +55,11 @@ export default function ModalConfirm({
               <MdFileUpload />
             </section>
           }
-          visible={isModalVisible}
+          open={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}>
           <p className='modal-text-up'>
-            {t('uploadmembers:modal-updated-text')}
+            {t('uploadstores:modal-updated-text')}
           </p>
           <section
             style={{
@@ -88,7 +88,7 @@ export default function ModalConfirm({
             </p>
           </section>
           <p className='modal-subtext-bottom' style={{ marginBottom: '20px' }}>
-            {t('uploadmembers:modal-updated-subtext')}
+            {t('uploadstores:modal-updated-subtext')}
           </p>
         </Modal>
       )} */}

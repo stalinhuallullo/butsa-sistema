@@ -9,9 +9,11 @@ export interface BasicInfoUpload {
 export function convertCSVtoJSON(result: string | ArrayBuffer | null | undefined): InfoTableStores[] {
   // const workbook: XLSX.WorkBook = XLSX.read(result, { type: 'binary', sheets: "Seguimiento",cellDates: true, })
   const workbook: XLSX.WorkBook = XLSX.read(result, {
-    type: 'binary', cellDates: true,
+    type: 'binary', 
+    cellDates: true,
     cellNF: false,
-    cellText: false
+    cellText: false,
+    sheets: "Seguimiento"
   })
   // almacena los datos obtenidos
   let data: InfoTableStores[] = []

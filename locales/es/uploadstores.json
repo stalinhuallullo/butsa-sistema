@@ -1,6 +1,6 @@
 {
-    "click-here": "Selecciona o arrastra tu archivo .csv para empezar a añadir miembros.",
-    "upload": "para empezar a subir los miembros",
+    "click-here": "Selecciona o arrastra tu archivo .csv o .xlsx",
+    "upload": "para empezar a subir",
     "preview": "Sube, previsualiza y edita los miembros de tu compañía desde un",
     "file": "solo archivo .csv / .xlsx",
     "up-members": "SUBIR MIEMBROS",

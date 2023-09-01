@@ -20,9 +20,9 @@ const ModalInfo = ({
           <div className='s-modal-close'>
             <IoCloseSharp onClick={() => setIsModalVisible(false)} />
           </div>
-          <p>{t('uploadmembers:modal-warning-1')}</p>
-          <p>{t('uploadmembers:modal-warning-2')}</p>
-          <p>{t('uploadmembers:modal-warning-3')}</p>
+          <p>{t('uploadstores:modal-warning-1')}</p>
+          <p>{t('uploadstores:modal-warning-2')}</p>
+          <p>{t('uploadstores:modal-warning-3')}</p>
         </section>
       ) : null}
     </>

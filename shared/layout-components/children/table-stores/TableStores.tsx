@@ -11,6 +11,7 @@ import TableStoresControls from "./TableStoresControls";
 import { uploadStores } from "@/utils/data-utils/submitData";
 import { useUserInfoGlobalContent } from "@/interfaces/userInfo-context";
 import { Alert } from "react-bootstrap";
+import ModalInfo from "../modals/ModalInfo";
 
 
 
@@ -39,10 +40,11 @@ export default function TableStores() {
     }, [arrayStores])
 
     async function submitStores() {
+        console.log("======= submitStores =======")
         showModal()
-        await uploadStores(userDataSession, arrayStores, "asPath")
-        setIsPopUpVisible(false)
-        router.push(`/app/applications/services-day/new`)
+        // await uploadStores(userDataSession, arrayStores, "asPath")
+        // setIsPopUpVisible(false)
+        // router.push(`/app/applications/services-day/new`)
     }
 
     function goBackBox() {
@@ -57,7 +59,7 @@ export default function TableStores() {
     const isThereAnError = (): Boolean => {
         return (
             badRowFormat.length > 0 ||
-            arrayBadHeaders.length > 0 
+            arrayBadHeaders.length > 0
             //arrayDuplicateManagerEmail.length > 0 ||
             //arrayDuplicateEmails.length > 0
         )
@@ -114,9 +116,9 @@ export default function TableStores() {
             />
 
             {/* <ModalInfo
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
-      /> */}
+                isModalVisible={isModalVisible}
+                setIsModalVisible={setIsModalVisible}
+            /> */}
         </Fragment>
     )
 }

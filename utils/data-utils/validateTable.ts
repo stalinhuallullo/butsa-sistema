@@ -8,6 +8,7 @@ export const validateHeaders = (
   setArrayBadHeaders: any,
   setArrayGoodHeaders: any
 ) => {
+
   let validHeaders: any[] = [];
   arrayStores.newData.forEach((a) => {
     const headerWithoutKey = Object.keys(a).filter((a) => {
@@ -33,22 +34,7 @@ export const validateHeaders = (
 
 export const validateRows = (arrayStores: BasicInfoFile, setBadRowFormat: any) => {
   arrayStores.newData.forEach((user: InfoTableStores) => {
-    // console.log("user ============> ", user)
-    // console.log("user !user.FECHA_DESPACHO =======> ", !user.FECHA_DESPACHO)
-    // console.log("user !user.TIENDA =======> ", !user.TIENDA)
-    // console.log("user !user.RUTA =======> ", !user.RUTA)
-    // console.log("user !user.GUIA =======> ", !user.GUIA)
-    // console.log("user !user.VALOR =======> ", !user.VALOR)
-    // console.log("user !user.PROVEEDOR =======> ", !user.PROVEEDOR)
-    // console.log("user !user.PLACA =======> ", !user.PLACA)
-    // console.log("user !user.CONDUCTOR =======> ", !user.CONDUCTOR)
-    // console.log("user !user.AUXILIAR =======> ", !user.AUXILIAR)
-    // console.log("user !user.ESTADO =======> ", !user.ESTADO)
-    // console.log("user !user.OBSERVACION =======> ", !user.OBSERVACION)
-    // console.log("user !user.ENTREGAS_CONFORME =======> ", !user.ENTREGAS_CONFORME)
     try {
-
-
       if (!user.FECHA_DESPACHO) {
         setBadRowFormat((prev: string[]) => [...prev, 'FECHA_DESPACHO']);
       }
@@ -82,15 +68,15 @@ export const validateRows = (arrayStores: BasicInfoFile, setBadRowFormat: any) =
       if (!user.ESTADO) {
         setBadRowFormat((prev: string[]) => [...prev, 'ESTADO']);
       }
-      if (!user.FECHA_DE_ENTREGA) {
-        setBadRowFormat((prev: string[]) => [...prev, 'FECHA_DE_ENTREGA']);
-      }
-      if (!user.OBSERVACION) {
-        setBadRowFormat((prev: string[]) => [...prev, 'OBSERVACION']);
-      }
-      if (!user.ENTREGAS_CONFORME) {
-        setBadRowFormat((prev: string[]) => [...prev, 'ENTREGAS_CONFORME']);
-      }
+      // if (!user.FECHA_DE_ENTREGA) {
+      //setBadRowFormat((prev: string[]) => [...prev, 'FECHA_DE_ENTREGA']);
+      // }
+      // if (!user.OBSERVACION) {
+      //setBadRowFormat((prev: string[]) => [...prev, 'OBSERVACION']);
+      // }
+      // if (!user.ENTREGAS_CONFORME) {
+      //setBadRowFormat((prev: string[]) => [...prev, 'ENTREGAS_CONFORME']);
+      // }
       // if (user.Cohort !== '') {
       //   const arrayCohort = user.Cohort.split('::');
       //   arrayCohort.forEach((cohort) => {
@@ -102,6 +88,7 @@ export const validateRows = (arrayStores: BasicInfoFile, setBadRowFormat: any) =
       //     }
       //   });
       // }
+
       // if (user['Managers Email Address'] !== '' && user['Managers Email Address'] !== undefined) {
       //   const arrayEmail = user['Managers Email Address']!.split('::');
       //   arrayEmail.forEach((email) => {
