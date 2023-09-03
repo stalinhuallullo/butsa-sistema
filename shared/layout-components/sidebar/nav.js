@@ -89,12 +89,27 @@ export const MENUITEMS = [
         title: "Empresa",
       },
       {
-        path: "/app/settings/users",
+        title: "Usuarios",
         icon: "fa fa-users",
-        type: "link",
+        type: "sub",
         active: false,
         selected: false,
-        title: "Usuarios",
+        children: [
+          {
+            path: "/app/settings/users",
+            type: "link",
+            active: false,
+            selected: false,
+            title: "Tabla",
+          },
+          {
+            path: "/app/settings/users/new",
+            type: "link",
+            active: false,
+            selected: false,
+            title: "Nuevo",
+          }
+        ]
       },
       {
         path: "/app/settings/system",

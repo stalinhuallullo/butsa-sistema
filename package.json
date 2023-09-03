@@ -1,6 +1,6 @@
 {
   "name": "butsa-sistema",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -74,7 +74,7 @@
     "sass": "^1.62.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.11",
-    "sweetalert2": "^11.7.6",
+    "sweetalert2": "^11.6.13",
     "turndown": "^7.1.2",
     "uploader": "^3.36.0",
     "validator": "^13.9.0",

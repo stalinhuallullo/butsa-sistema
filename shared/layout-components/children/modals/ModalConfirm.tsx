@@ -29,9 +29,9 @@ export default function ModalConfirm({
   return (
     <>
       {/* {query.group === 'abc' ? ( */}
-        <Modal
+        {/* <Modal
           maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
-          cancelText={t('uploadstores:modal-cancel-text')}
+          cancelText={t('uploadstores:cancel')}
           okText={t('uploadstores:modal-ok-text')}
           title={
             <section className='modal-alert-icon'>
@@ -41,12 +41,12 @@ export default function ModalConfirm({
           open={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}>
-          <p className='modal-text-up'>{t('uploadstores:modal-members')}</p>
+          <p className='modal-text-up'>{t('uploadstores:modal-stores')}</p>
           <p className='modal-text-bottom'>
-            {t('uploadstores:modal-members-question')}
+            {t('uploadstores:modal-stores-question')}
           </p>
         </Modal>
-      {/* ) : (
+      ) : ( */}
         <Modal
           footer={null}
           maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
@@ -74,7 +74,8 @@ export default function ModalConfirm({
               style={{
                 backgroundColor: '#64C28D',
                 width: '60%',
-                borderRadius: '50px'
+                borderRadius: '50px',
+                height: '8px'
               }}>
               .
             </p>
@@ -82,7 +83,8 @@ export default function ModalConfirm({
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.24)',
                 width: '40%',
-                borderRadius: '50px'
+                borderRadius: '50px',
+                height: '8px'
               }}>
               .
             </p>
@@ -91,7 +93,7 @@ export default function ModalConfirm({
             {t('uploadstores:modal-updated-subtext')}
           </p>
         </Modal>
-      )} */}
+      {/* )} */}
     </>
   )
 }
