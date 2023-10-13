@@ -1,15 +1,15 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import PageHeader from '@/shared/layout-components/page-header/page-header'
 import Seo from '@/shared/layout-components/seo/seo'
 import { Card, Col, Row } from 'react-bootstrap'
 import { InfoUser } from '@/interfaces/user-context-interface'
 import { GlobalContextUser } from '@/interfaces/reducer/users-context'
 import TableUsers from '@/shared/layout-components/children/table-users/table-user'
+import PageHeaderNew from '@/shared/layout-components/page-header/page-header-new'
 
 export default function Users() {
-    const [arrayUsers, setArrayUsers] = useState<InfoUser[]>()
+    const [arrayUsers, setArrayUsers] = useState<InfoUser[]>([])
 
 
     useEffect(() => {
@@ -27,8 +27,9 @@ export default function Users() {
                 "gender": "female",
                 "nationality": "Perú",
                 "civil_status": "single woman",
-                "photo": "assets/img/users/taylor-photo.jpg",
-                "status": "active",
+                "photo": (num === 2) ? "": "/assets/img/users/taylor-photo.jpg",
+                "user_name": "taylor" + num,
+                "status": (num === 2) ? "inactive": "active",
                 "register_date": "02/09/2023",
                 "update_date": "02/09/2023",
                 "rol": "ADMIN"
@@ -42,9 +43,8 @@ export default function Users() {
         <div>
             <Seo title="Usuarios" />
 
-            <PageHeader title="Usuarios" item="Configuraciones" active_item="Usuarios" />
+            <PageHeaderNew title="Usuarios" item="Configuraciones" active_item="Usuarios" />
 
-            {/* <!-- Row --> */}
             <Row className=" sidemenu-height">
                 <Col lg={12}>
                     <Card className="custom-card">
@@ -56,7 +56,6 @@ export default function Users() {
                     </Card>
                 </Col>
             </Row>
-            {/* <!-- End Row --> */}
         </div>
     )
 }

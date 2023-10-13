@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import PageHeader from '@/shared/layout-components/page-header/page-header'
+import PageHeader from '@/shared/layout-components/page-header/page-header-controls'
 import Seo from '@/shared/layout-components/seo/seo'
 import { Card, Col, Row } from 'react-bootstrap'
 import { MyGlobalContextStores } from '@/interfaces/reducer/stores-context'

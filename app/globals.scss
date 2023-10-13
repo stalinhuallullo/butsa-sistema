@@ -2750,3 +2750,8 @@ ol.progtrckr li.progtrckr-todo {
 @import "../shared/layout-components/children/modals/ModalConfirm.module.scss";
 @import "../shared/layout-components/children/modals/ModalInfo.module.scss";
 
+.map-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+}
+@import '../shared/layout-components/children/map/map-tambo-global.module.scss'

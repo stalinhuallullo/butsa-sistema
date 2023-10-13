@@ -1,5 +1,5 @@
 import { BasicInfoFile, InfoTableStores } from '@/interfaces/stores-interface';
-import { columns } from '../component-utils/tableColumns';
+import { columns } from '../component-utils/table-columns';
 
 import patterns from './patternRegex';
 

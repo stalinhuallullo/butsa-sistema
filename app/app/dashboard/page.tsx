@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import PageHeader from "../../../shared/layout-components/page-header/page-header"
 import Seo from '../../../shared/layout-components/seo/seo';
 
 import { CircularProgress } from '@mui/material';
@@ -29,6 +28,7 @@ import projectlogo from "../../../public/assets/img/media/project-logo.png"
 import dynamic from 'next/dynamic';
 import ProjectBudget from '../../../shared/data/dashboard/project-budget';
 import WebsiteDesign from '../../../shared/data/dashboard/website-design';
+import PageHeaderControls from '../../../shared/layout-components/page-header/page-header-controls';
 const TodayTask = dynamic(() => import('../../../shared/data/dashboard/today-task'), { ssr: false })
 
 
@@ -87,7 +87,7 @@ export default function Dashboard() {
     <>
       <Seo title="Dashboard" />
 
-      <PageHeader title="Bienvenido al Dashboard" item="Home" active_item="Dashboard" />
+      <PageHeaderControls title="Bienvenido al Dashboard" item="Home" active_item="Dashboard" />
 
       <div className="row row-sm">
         <div className="col-sm-12 col-lg-12 col-xl-8">

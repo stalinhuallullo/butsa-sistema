@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/navigation";
 import { useGlobalContextStores } from "@/interfaces/reducer/stores-context";
 import { validateHeaders, validateRows } from "@/utils/data-utils/validateTable";
-import { columns, onChangeData } from "@/utils/component-utils/tableColumns";
+import { columns, onChangeData } from "@/utils/component-utils/table-columns";
 import TableStoresControls from "./TableStoresControls";
 import { uploadStores } from "@/utils/data-utils/submitData";
 import { useUserInfoGlobalContent } from "@/interfaces/userInfo-context";

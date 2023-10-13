@@ -1,10 +1,10 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import PageHeader from '@/shared/layout-components/page-header/page-header'
+import PageHeader from '@/shared/layout-components/page-header/page-header-controls'
 import Seo from '@/shared/layout-components/seo/seo'
 import { Card, Col, Row } from 'react-bootstrap'
-import TableServicesDay from '@/shared/layout-components/children/table-services-day/TablaServicesDay'
+import TableServicesDay from '@/shared/layout-components/children/table-services-day/table-services-day'
 import { MyGlobalContextServicesDay } from '@/interfaces/reducer/services-day-context'
 import { BasicInfoServicesDay, InfoTableServicesDay } from '@/interfaces/services-day-interface'
 

@@ -46,14 +46,14 @@ export const MENUITEMS = [
         selected: false,
         title: "Mapa",
       },
-      {
-        path: "/app/applications/routes",
-        icon: "fa fa-road",
-        type: "link",
-        active: false,
-        selected: false,
-        title: "Rutas",
-      }
+      // {
+      //   path: "/app/applications/routes",
+      //   icon: "fa fa-road",
+      //   type: "link",
+      //   active: false,
+      //   selected: false,
+      //   title: "Rutas",
+      // }
     ]
   },
   {
@@ -77,6 +77,57 @@ export const MENUITEMS = [
       }
     ]
   },
+  // {
+  //   menutitle: "MANTENIMIENTO",
+  //   Items: [
+  //     {
+  //       title: "Rutas",
+  //       icon: "fa fa-users",
+  //       type: "sub",
+  //       active: false,
+  //       selected: false,
+  //       children: [
+  //         {
+  //           path: "/app/applications/routes",
+  //           type: "link",
+  //           active: false,
+  //           selected: false,
+  //           title: "Tabla",
+  //         },
+  //         {
+  //           path: "/app/applications/routes/new",
+  //           type: "link",
+  //           active: false,
+  //           selected: false,
+  //           title: "Nuevo",
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       title: "Usuarios",
+  //       icon: "fa fa-users",
+  //       type: "sub",
+  //       active: false,
+  //       selected: false,
+  //       children: [
+  //         {
+  //           path: "/app/settings/users",
+  //           type: "link",
+  //           active: false,
+  //           selected: false,
+  //           title: "Tabla",
+  //         },
+  //         {
+  //           path: "/app/settings/users/new",
+  //           type: "link",
+  //           active: false,
+  //           selected: false,
+  //           title: "Nuevo",
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // },
   {
     menutitle: "CONFIGURACIONES",
     Items: [
@@ -87,6 +138,29 @@ export const MENUITEMS = [
         active: false,
         selected: false,
         title: "Empresa",
+      },
+      {
+        title: "Rutas",
+        icon: "fa fa-users",
+        type: "sub",
+        active: false,
+        selected: false,
+        children: [
+          {
+            path: "/app/settings/routes",
+            type: "link",
+            active: false,
+            selected: false,
+            title: "Tabla",
+          },
+          {
+            path: "/app/settings/routes/new",
+            type: "link",
+            active: false,
+            selected: false,
+            title: "Nuevo",
+          }
+        ]
       },
       {
         title: "Usuarios",

@@ -1,13 +1,21 @@
+"use client"
+
 import React from 'react'
 
-const PageHeader = (props) => {
+interface Props {
+  title: string;
+  item: string;
+  active_item: string;
+}
+
+const PageHeaderControls = ({ title, item, active_item }: Props) => {
   return (
     <div className="page-header">
       <div>
-        <h2 className="main-content-title tx-24 mg-b-5">{props.title}</h2>
+        <h2 className="main-content-title tx-24 mg-b-5">{title}</h2>
         <ol className="breadcrumb">
-          <li className="breadcrumb-item"><a>{props.item}</a></li>
-          <li className="breadcrumb-item active" aria-current="page">{props.active_item}</li>
+          <li className="breadcrumb-item"><a>{item}</a></li>
+          <li className="breadcrumb-item active" aria-current="page">{active_item}</li>
         </ol>
       </div>
       <div className="d-flex">
@@ -27,4 +35,4 @@ const PageHeader = (props) => {
   )
 }
 
-export default PageHeader
+export default PageHeaderControls

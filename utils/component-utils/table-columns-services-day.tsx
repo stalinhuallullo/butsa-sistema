@@ -9,17 +9,9 @@ import { FilterConfirmProps } from 'antd/es/table/interface'
 import { InfoTableServicesDay } from '@/interfaces/services-day-interface'
 import Highlighter from 'react-highlight-words';
 import Link from 'next/link'
+import { ColumnsData } from '@/interfaces/table-columns-data'
 /* eslint-disable no-useless-escape */
 
-export interface ColumnsData {
-  title?: string
-  dataIndex?: string
-  key?: string
-  width?: number
-  sorter?: any
-  multiple?: any
-  render?: any
-}
 
 
 export const columnsServicesDay: ColumnsData[] = [

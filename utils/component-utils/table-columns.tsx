@@ -1,16 +1,9 @@
+import { ColumnsData } from '@/interfaces/table-columns-data'
 import patterns from '../data-utils/patternRegex'
 import { sorter } from './sorter'
 /* eslint-disable no-useless-escape */
 
-export interface ColumnsData {
-  title?: string
-  dataIndex?: string
-  key?: string
-  width?: number
-  sorter?: any
-  multiple?: any
-  render?: any
-}
+
 
 export const columns: ColumnsData[] = [
   {

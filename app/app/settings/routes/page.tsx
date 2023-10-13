@@ -8,9 +8,9 @@ import { Card, Col, Row } from 'react-bootstrap'
 export default function Routes() {
     return (
         <div>
-            <Seo title="Configuración del sistema" />
+            <Seo title="Rutas" />
 
-            <PageHeader title="Configuración del sistema" item="Configuraciones" active_item="Configuración del sistema" />
+            <PageHeader title="Rutas" item="Aplicaciones" active_item="Rutas" />
 
             {/* <!-- Row --> */}
             <Row className=" sidemenu-height">

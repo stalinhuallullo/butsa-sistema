@@ -5,12 +5,12 @@ import PageHeader from '@/shared/layout-components/page-header/page-header-contr
 import Seo from '@/shared/layout-components/seo/seo'
 import { Card, Col, Row } from 'react-bootstrap'
 
-export default function Routes() {
+export default function NewUser() {
     return (
         <div>
-            <Seo title="Configuración del sistema" />
+            <Seo title="Rutas" />
 
-            <PageHeader title="Configuración del sistema" item="Configuraciones" active_item="Configuración del sistema" />
+            <PageHeader title="Rutas" item="Aplicaciones" active_item="Rutas" />
 
             {/* <!-- Row --> */}
             <Row className=" sidemenu-height">

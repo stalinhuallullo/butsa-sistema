@@ -3,12 +3,13 @@ import { Input, InputRef, Space, Table } from "antd";
 import ModalConfirm from "../modals/ModalConfirm";
 import { useGlobalContextServicesDay } from "@/interfaces/reducer/services-day-context";
 import { useUserInfoGlobalContent } from "@/interfaces/userInfo-context";
-import { ColumnsData, columnsServicesDay, onChangeData } from "@/utils/component-utils/tableColumnsServicesDay";
+import { columnsServicesDay, onChangeData } from "@/utils/component-utils/table-columns-services-day";
 import Highlighter from "react-highlight-words";
 import type { ColumnType, ColumnsType } from 'antd/es/table';
 import { FilterConfirmProps } from "antd/es/table/interface";
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from "react-bootstrap";
+import { ColumnsData } from "@/interfaces/table-columns-data";
 
 export default function TableServicesDay() {
 
